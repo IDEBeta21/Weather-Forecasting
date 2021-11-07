@@ -1,0 +1,93 @@
+
+// $aPIs->getRealtimeWeather($q, $lang);
+object(WeatherAPILib\Models\CurrentJsonResponse)15 (2) { 
+    ["location"]=> object(WeatherAPILib\Models\Location)18 (8) {
+        ["name"]=> string(8) "Caloocan" 
+        ["region"]=> string(8) "Caloocan" 
+        ["country"]=> string(11) "Philippines" 
+        ["lat"]=> float(14.65) 
+        ["lon"]=> float(120.98) 
+        ["tzId"]=> string(11) "Asia/Manila" 
+        ["localtimeEpoch"]=> int(1632211268) 
+        ["localtime"]=> string(16) "2021-09-21 16:01" 
+    } 
+    ["current"]=> object(WeatherAPILib\Models\Current)34 (23) {
+        ["lastUpdatedEpoch"]=> int(1632207600) 
+        ["lastUpdated"]=> string(16) "2021-09-21 15:00" 
+        ["tempC"]=> float(33) 
+        ["tempF"]=> float(91.4) 
+        ["isDay"]=> int(1) S
+        ["condition"]=> object(WeatherAPILib\Models\Condition)57 (3) {
+            ["text"]=> string(13) "Partly cloudy" 
+            ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" 
+            ["code"]=> int(1003) 
+        } 
+        ["windMph"]=> float(11.9) 
+        ["windKph"]=> float(19.1) 
+        ["windDegree"]=> int(110) 
+        ["windDir"]=> string(3) "ESE" 
+        ["pressureMb"]=> float(1006) 
+        ["pressureIn"]=> float(29.71) 
+        ["precipMm"]=> float(0) 
+        ["precipIn"]=> float(0) 
+        ["humidity"]=> int(63) 
+        ["cloud"]=> int(50)
+        ["feelslikeC"]=> float(40.7) 
+        ["feelslikeF"]=> float(105.2) 
+        ["visKm"]=> float(10) 
+        ["visMiles"]=> float(6) 
+        ["uv"]=> float(8) 
+        ["gustMph"]=> float(3.4) 
+        ["gustKph"]=> float(5.4) 
+    } 
+}
+
+
+
+
+
+// $aPIs->getForecastWeather($q1, $days, $dt, $hour, $lang1);
+object(WeatherAPILib\Models\ForecastJsonResponse)#68 (3) {
+    ["location"]=> object(WeatherAPILib\Models\Location)#45 (8) { 
+        ["name"]=> string(8) "Caloocan" 
+        ["region"]=> string(8) "Caloocan" 
+        ["country"]=> string(11) "Philippines" 
+        ["lat"]=> float(14.65) 
+        ["lon"]=> float(120.98) 
+        ["tzId"]=> string(11) "Asia/Manila" 
+        ["localtimeEpoch"]=> int(1634323160) 
+        ["localtime"]=> string(15) "2021-10-16 2:39" 
+    } 
+    ["current"]=> object(WeatherAPILib\Models\Current)#32 (23) { 
+        ["lastUpdatedEpoch"]=> int(1634322600) 
+        ["lastUpdated"]=> string(16) "2021-10-16 02:30"     
+        ["tempC"]=> float(27) 
+        ["tempF"]=> float(80.6) 
+        ["isDay"]=> int(0) 
+        ["condition"]=> object(WeatherAPILib\Models\Condition)#59 (3) { 
+            ["text"]=> string(10) "Light rain" 
+            ["icon"]=> string(48) "//cdn.weatherapi.com/weather/64x64/night/296.png" 
+            ["code"]=> int(1183) 
+        } 
+        ["windMph"]=> float(0) 
+        ["windKph"]=> float(0) 
+        ["windDegree"]=> int(0) 
+        ["windDir"]=> string(1) "N" 
+        ["pressureMb"]=> float(1006) 
+        ["pressureIn"]=> float(29.71) 
+        ["precipMm"]=> float(0) 
+        ["precipIn"]=> float(0) 
+        ["humidity"]=> int(94) 
+        ["cloud"]=> int(100) 
+        ["feelslikeC"]=> float(31.2) 
+        ["feelslikeF"]=> float(88.1) 
+        ["visKm"]=> float(7) 
+        ["visMiles"]=> float(4) 
+        ["uv"]=> float(1)
+        ["gustMph"]=> float(7.8) 
+        ["gustKph"]=> float(12.6) 
+    } 
+    ["forecast"]=> object(WeatherAPILib\Models\Forecast)#77 (1) { 
+        ["forecastday"]=> array(0) { } 
+    } 
+}
