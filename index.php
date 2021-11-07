@@ -1,31 +1,78 @@
-<?php
-    require_once('components/key.php');
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Weather Forecasting</title>
+	<link rel="stylesheet" type="text/css" href="css/layout.css">
 
-    $q = 'Caloocan';
-    $lang = '';
+	<!-- Boxicons CDN Link  -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    $result = $aPIs->getRealtimeWeather($q, $lang);
+	<!-- Iconify link -->
+	<!-- 	<script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+	<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script> -->
 
-    echo('<h1>Initial test</h1></br>');
-    echo($result->location->name);
-    echo('</br>Current temperature: '.$result->current->tempC);
-    echo('</br>Longitude: '.$result->location->lon);
-    echo('</br>Latitude: '.$result->location->lat);
-    echo('</br></br>');
-    var_dump($result);
-    echo('</br></br>');
+</head>
+<body>
+	<div class="sidebar">
+		<div class="logo_content">
+			<div class="logo">
+				<i class='bx bxs-sun'></i>
+				<div class="logo_name">Weatherfufu</div>
+			</div>
+				<i class='bx bx-menu' id="btn"></i>
+		</div>
+
+		<ul class="nav_list">
+			<li>
+				<i class='bx bx-search'></i>		
+				<input type="text" placeholder="Search..." style="color: white;">
+				<span class="tooltip">Search</span>
+			</li>
+
+			<li>
+				<a href="#">
+					<i class='bx bx-cloud-snow'></i>
+					<span class="links_name">Forecast</span>
+					</a>
+				<span class="tooltip">Forecast</span>
+			</li>
+
+			<li>
+				<a href="#">
+					<i class='bx bx-cog'></i>
+					<span class="links_name">Settings</span>
+					</a>
+				<span class="tooltip">Settings</span>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="home_content">
+		<div class="text">Home content</div>
+	</div>
 
 
-    $q1 = 'caloocan';
-    $days = 1;
-    // $dt = date("D M d, Y G:i");
-    $dt = date_create('2021-10-18');
+	<script type="text/javascript">
+		let btn = document.querySelector("#btn");
+		let sidebar = document.querySelector(".sidebar");
+		let searchBtn = document.querySelector(".bx-search");
 
-    $unixdt = 245;
-    $hour = 245;
-    $lang1 = 'lang';
+		btn.onclick = function() {
+			sidebar.classList.toggle("active");
+		}
 
-    // $result01 = $aPIs->getForecastWeather($q, $days, $dt);
-    $result01 = $aPIs->getForecastWeather($q1, $days, $dt, $hour, $lang1);
-    var_dump($result01);
-?>
+		searchBtn.onclick = function() {
+			sidebar.classList.toggle("active");
+		}
+	</script>
+
+</body>
+</html>
+
+	<!-- <span class="iconify" data-icon="carbon:settings" style="color: white;"></span>
+	<span class="iconify" data-icon="fluent:weather-cloudy-24-regular" style="color: white;"></span>
+	<span class="iconify" data-icon="fluent:weather-hail-day-24-regular" style="color: white;"></span>
+	 -->
