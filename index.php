@@ -50,8 +50,7 @@
       <li>
         <i class='bx bx-search'></i>    
         <input type="text" placeholder="Search..." style="color: white;">
-		<button type="button" class="btn btn-outline-secondary"><i class='bx bx-search'></i></button>
-        <span class="tooltip">Search</span>
+		    <span class="tooltip">Search</span>
       </li>
 
       <li>
