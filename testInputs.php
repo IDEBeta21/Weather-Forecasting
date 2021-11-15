@@ -16,16 +16,32 @@
     echo('</br></br>');
 
 
-    $q1 = 'caloocan';
-    $days = 1;
+    $q1 = 'manila';
+    $days1 = 1;
     // $dt = date("D M d, Y G:i");
-    $dt = date_create('2021-10-18');
-
-    $unixdt = 245;
-    $hour = 245;
+    $dt1 = date_create('2021-11-12');
+    $unixdt1 = null;
+    $hour1 = 245;
     $lang1 = 'lang';
 
+    $result1 = $aPIs->getForecastWeather($q1, $days1, $dt1, $unixdt1, $hour1, $lang1);
     // $result01 = $aPIs->getForecastWeather($q, $days, $dt);
-    $result01 = $aPIs->getForecastWeather($q1, $days, $dt, $hour, $lang1);
-    var_dump($result01);
+    // $result01 = $aPIs->getForecastWeather($q1, $days, $dt, $hour, $lang1);
+    var_dump($result1);
+    echo('</br></br>');
+
+    $q2 = 'caloocan';
+    $dt2 = date_create('2021-11-09');
+    $unixdt2 = null;
+    $endDt2 = date_create('2021-11-20');
+    $unixendDt2 = null;
+    $hour2 = 12;
+    $lang2 = 'lang';
+
+    $result2 = $aPIs->getHistoryWeather($q2, $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+    // $result2 = $aPIs->getHistoryWeather($q, $dt, $endDt, $hour, $lang);
+    var_dump($result2);
+
+
+
 ?>

@@ -46,6 +46,11 @@ object(WeatherAPILib\Models\CurrentJsonResponse)15 (2) {
 
 
 
+
+
+
+
+
 // $aPIs->getForecastWeather($q1, $days, $dt, $hour, $lang1);
 object(WeatherAPILib\Models\ForecastJsonResponse)#68 (3) {
     ["location"]=> object(WeatherAPILib\Models\Location)#45 (8) { 
@@ -91,3 +96,156 @@ object(WeatherAPILib\Models\ForecastJsonResponse)#68 (3) {
         ["forecastday"]=> array(0) { } 
     } 
 }
+
+
+
+
+
+
+
+
+
+
+// $result = $aPIs->getHistoryWeather($q, $dt, $unixdt, $endDt, $unixendDt, $hour, $lang);
+object(WeatherAPILib\Models\HistoryJsonResponse)#25 (3) {
+    ["location"]=> object(WeatherAPILib\Models\Location)#71 (8) { 
+        ["name"]=> string(8) "Caloocan" 
+        ["region"]=> string(8) "Caloocan" 
+        ["country"]=> string(11) "Philippines" 
+        ["lat"]=> float(14.65) 
+        ["lon"]=> float(120.98) 
+        ["tzId"]=> string(11) "Asia/Manila" 
+        ["localtimeEpoch"]=> int(1636902564) 
+        ["localtime"]=> string(16) "2021-11-14 23:09" 
+    } 
+    ["current"]=> NULL 
+    ["forecast"]=> object(WeatherAPILib\Models\Forecast1)#19 (1) { 
+        ["forecastday"]=> array(6) { 
+            [0]=> object(WeatherAPILib\Models\Forecastday1)#56 (5) { 
+                ["date"]=> string(10) "2021-11-09" 
+                ["dateEpoch"]=> int(1636416000) 
+                ["day"]=> object(WeatherAPILib\Models\Day)#86 (15) { 
+                    ["maxtempC"]=> float(31.4) 
+                    ["maxtempF"]=> float(88.5) 
+                    ["mintempC"]=> float(26.7) 
+                    ["mintempF"]=> float(80.1) 
+                    ["avgtempC"]=> float(29.8) 
+                    ["avgtempF"]=> float(85.6) 
+                    ["maxwindMph"]=> float(13.2) 
+                    ["maxwindKph"]=> float(21.2) 
+                    ["totalprecipMm"]=> float(0) 
+                    ["totalprecipIn"]=> float(0) 
+                    ["avgvisKm"]=> float(10) 
+                    ["avgvisMiles"]=> float(6) 
+                    ["avghumidity"]=> float(67) 
+                    ["condition"]=> object(WeatherAPILib\Models\Condition)#112 (3) { 
+                        ["text"]=> string(13) "Partly cloudy" 
+                        ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" 
+                        ["code"]=> int(1003) 
+                    } 
+                    ["uv"]=> float(0) 
+                } 
+                ["astro"]=> object(WeatherAPILib\Models\Astro)#113 (4) {
+                    ["sunrise"]=> string(8) "05:55 AM" 
+                    ["sunset"]=> string(8) "05:25 PM" 
+                    ["moonrise"]=> string(8) "10:21 AM" 
+                    ["moonset"]=> string(8) "09:50 PM" 
+                } 
+                ["hour"]=> array(1) { 
+                    [0]=> object(WeatherAPILib\Models\Hour)#42 (23) { 
+                        ["timeEpoch"]=> int(1636430400) 
+                        ["time"]=> string(16) "2021-11-09 12:00" 
+                        ["tempC"]=> float(31.3) 
+                        ["tempF"]=> float(88.3) 
+                        ["isDay"]=> int(1) 
+                        ["condition"]=> object(WeatherAPILib\Models\Condition)#139 (3) { 
+                            ["text"]=> string(13) "Partly cloudy" 
+                            ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" 
+                            ["code"]=> int(1003) 
+                        } 
+                        ["windMph"]=> float(13.2) 
+                        ["windKph"]=> float(21.2) 
+                        ["windDegree"]=> int(66) 
+                        ["windDir"]=> string(3) "ENE" 
+                        ["pressureMb"]=> float(1010) 
+                        ["pressureIn"]=> float(29.83) 
+                        ["precipMm"]=> float(0) 
+                        ["precipIn"]=> float(0) 
+                        ["humidity"]=> int(60) 
+                        ["cloud"]=> int(48) 
+                        ["feelslikeC"]=> float(35.6) 
+                        ["feelslikeF"]=> float(96.1) 
+                        ["visKm"]=> float(10) 
+                        ["visMiles"]=> float(6) 
+                        ["uv"]=> NULL 
+                        ["gustMph"]=> float(15.2) 
+                        ["gustKph"]=> float(24.5) 
+                    } 
+                } 
+            } 
+            [1]=> object(WeatherAPILib\Models\Forecastday1)#61 (5) { 
+                ["date"]=> string(10) "2021-11-10" 
+                ["dateEpoch"]=> int(1636502400) 
+                ["day"]=> object(WeatherAPILib\Models\Day)#133 (15) { 
+                    ["maxtempC"]=> float(33.4) 
+                    ["maxtempF"]=> float(92.1) 
+                    ["mintempC"]=> float(25.4) 
+                    ["mintempF"]=> float(77.7) 
+                    ["avgtempC"]=> float(29.9) 
+                    ["avgtempF"]=> float(85.9) 
+                    ["maxwindMph"]=> float(9.4) 
+                    ["maxwindKph"]=> float(15.1) 
+                    ["totalprecipMm"]=> float(0) 
+                    ["totalprecipIn"]=> float(0) 
+                    ["avgvisKm"]=> float(10) 
+                    ["avgvisMiles"]=> float(6) 
+                    ["avghumidity"]=> float(68) 
+                    ["condition"]=> object(WeatherAPILib\Models\Condition)#136 (3) { 
+                        ["text"]=> string(13) "Partly cloudy" 
+                        ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" 
+                        ["code"]=> int(1003) 
+                    } 
+                    ["uv"]=> float(0) 
+                } 
+                ["astro"]=> object(WeatherAPILib\Models\Astro)#134 (4) { 
+                    ["sunrise"]=> string(8) "05:55 AM" 
+                    ["sunset"]=> string(8) "05:25 PM" 
+                    ["moonrise"]=> string(8) "11:20 AM" 
+                    ["moonset"]=> string(8) "10:52 PM" 
+                } 
+                ["hour"]=> array(1) { 
+                    [0]=> object(WeatherAPILib\Models\Hour)#141 (23) { 
+                        ["timeEpoch"]=> int(1636516800) 
+                        ["time"]=> string(16) "2021-11-10 12:00" 
+                        ["tempC"]=> float(33.4) 
+                        ["tempF"]=> float(92.1) 
+                        ["isDay"]=> int(1) 
+                        ["condition"]=> object(WeatherAPILib\Models\Condition)#145 (3) { 
+                            ["text"]=> string(13) "Partly cloudy" 
+                            ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" 
+                            ["code"]=> int(1003) 
+                        } 
+                        ["windMph"]=> float(3.4) 
+                        ["windKph"]=> float(5.4) 
+                        ["windDegree"]=> int(97) 
+                        ["windDir"]=> string(1) "E" 
+                        ["pressureMb"]=> float(1010) 
+                        ["pressureIn"]=> float(29.82) 
+                        ["precipMm"]=> float(0) 
+                        ["precipIn"]=> float(0) 
+                        ["humidity"]=> int(52) 
+                        ["cloud"]=> int(50) 
+                        ["feelslikeC"]=> float(38.3) 
+                        ["feelslikeF"]=> float(100.9) 
+                        ["visKm"]=> float(10) 
+                        ["visMiles"]=> float(6) 
+                        ["uv"]=> NULL 
+                        ["gustMph"]=> float(3.8) 
+                        ["gustKph"]=> float(6.1) 
+                    } 
+                } 
+            } 
+            [2]=> object(WeatherAPILib\Models\Forecastday1)#93 (5) { 
+                ["date"]=> string(10) "2021-11-11" ["dateEpoch"]=> int(1636588800) ["day"]=> object(WeatherAPILib\Models\Day)#149 (15) { ["maxtempC"]=> float(33.4) ["maxtempF"]=> float(92.1) ["mintempC"]=> float(25.9) ["mintempF"]=> float(78.6) ["avgtempC"]=> float(29.8) ["avgtempF"]=> float(85.6) ["maxwindMph"]=> float(9.4) ["maxwindKph"]=> float(15.1) ["totalprecipMm"]=> float(0) ["totalprecipIn"]=> float(0) ["avgvisKm"]=> float(10) ["avgvisMiles"]=> float(6) ["avghumidity"]=> float(68) ["condition"]=> object(WeatherAPILib\Models\Condition)#153 (3) { ["text"]=> string(13) "Partly cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" ["code"]=> int(1003) } ["uv"]=> float(0) } ["astro"]=> object(WeatherAPILib\Models\Astro)#151 (4) { ["sunrise"]=> string(8) "05:55 AM" ["sunset"]=> string(8) "05:25 PM" ["moonrise"]=> string(8) "12:12 PM" ["moonset"]=> string(8) "11:51 PM" } ["hour"]=> array(1) { [0]=> object(WeatherAPILib\Models\Hour)#154 (23) { ["timeEpoch"]=> int(1636603200) ["time"]=> string(16) "2021-11-11 12:00" ["tempC"]=> float(33.4) ["tempF"]=> float(92.1) ["isDay"]=> int(1) ["condition"]=> object(WeatherAPILib\Models\Condition)#150 (3) { ["text"]=> string(13) "Partly cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" ["code"]=> int(1003) } ["windMph"]=> float(6.3) ["windKph"]=> float(10.1) ["windDegree"]=> int(91) ["windDir"]=> string(1) "E" ["pressureMb"]=> float(1009) ["pressureIn"]=> float(29.81) ["precipMm"]=> float(0) ["precipIn"]=> float(0) ["humidity"]=> int(52) ["cloud"]=> int(46) ["feelslikeC"]=> float(38.3) ["feelslikeF"]=> float(100.9) ["visKm"]=> float(10) ["visMiles"]=> float(6) ["uv"]=> NULL ["gustMph"]=> float(7.2) ["gustKph"]=> float(11.5) } } } [3]=> object(WeatherAPILib\Models\Forecastday1)#143 (5) { ["date"]=> string(10) "2021-11-12" ["dateEpoch"]=> int(1636675200) ["day"]=> object(WeatherAPILib\Models\Day)#146 (15) { ["maxtempC"]=> float(29.9) ["maxtempF"]=> float(85.8) ["mintempC"]=> float(25.5) ["mintempF"]=> float(77.9) ["avgtempC"]=> float(28.3) ["avgtempF"]=> float(83) ["maxwindMph"]=> float(8.5) ["maxwindKph"]=> float(13.7) ["totalprecipMm"]=> float(0) ["totalprecipIn"]=> float(0) ["avgvisKm"]=> float(10) ["avgvisMiles"]=> float(6) ["avghumidity"]=> float(71) ["condition"]=> object(WeatherAPILib\Models\Condition)#142 (3) { ["text"]=> string(6) "Cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/119.png" ["code"]=> int(1006) } ["uv"]=> float(0) } ["astro"]=> object(WeatherAPILib\Models\Astro)#144 (4) { ["sunrise"]=> string(8) "05:56 AM" ["sunset"]=> string(8) "05:25 PM" ["moonrise"]=> string(8) "12:59 PM" ["moonset"]=> string(10) "No moonset" } ["hour"]=> array(1) { [0]=> object(WeatherAPILib\Models\Hour)#103 (23) { ["timeEpoch"]=> int(1636689600) ["time"]=> string(16) "2021-11-12 12:00" ["tempC"]=> float(29.9) ["tempF"]=> float(85.8) ["isDay"]=> int(1) ["condition"]=> object(WeatherAPILib\Models\Condition)#118 (3) { ["text"]=> string(13) "Partly cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" ["code"]=> int(1003) } ["windMph"]=> float(8.5) ["windKph"]=> float(13.7) ["windDegree"]=> int(73) ["windDir"]=> string(3) "ENE" ["pressureMb"]=> float(1011) ["pressureIn"]=> float(29.86) ["precipMm"]=> float(0) ["precipIn"]=> float(0) ["humidity"]=> int(69) ["cloud"]=> int(34) ["feelslikeC"]=> float(34.6) ["feelslikeF"]=> float(94.3) ["visKm"]=> float(10) ["visMiles"]=> float(6) ["uv"]=> NULL ["gustMph"]=> float(9.8) ["gustKph"]=> float(15.8) } } } [4]=> object(WeatherAPILib\Models\Forecastday1)#152 (5) { ["date"]=> string(10) "2021-11-13" ["dateEpoch"]=> int(1636761600) ["day"]=> object(WeatherAPILib\Models\Day)#122 (15) { ["maxtempC"]=> float(31.6) ["maxtempF"]=> float(88.9) ["mintempC"]=> float(25.4) ["mintempF"]=> float(77.7) ["avgtempC"]=> float(28.8) ["avgtempF"]=> float(83.9) ["maxwindMph"]=> float(9.8) ["maxwindKph"]=> float(15.8) ["totalprecipMm"]=> float(0) ["totalprecipIn"]=> float(0) ["avgvisKm"]=> float(10) ["avgvisMiles"]=> float(6) ["avghumidity"]=> float(71) ["condition"]=> object(WeatherAPILib\Models\Condition)#127 (3) { ["text"]=> string(13) "Partly cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" ["code"]=> int(1003) } ["uv"]=> float(0) } ["astro"]=> object(WeatherAPILib\Models\Astro)#124 (4) { ["sunrise"]=> string(8) "05:56 AM" ["sunset"]=> string(8) "05:25 PM" ["moonrise"]=> string(8) "01:41 PM" ["moonset"]=> string(8) "12:47 AM" } ["hour"]=> array(1) { [0]=> object(WeatherAPILib\Models\Hour)#155 (23) { ["timeEpoch"]=> int(1636776000) ["time"]=> string(16) "2021-11-13 12:00" ["tempC"]=> float(31.6) ["tempF"]=> float(88.9) ["isDay"]=> int(1) ["condition"]=> object(WeatherAPILib\Models\Condition)#158 (3) { ["text"]=> string(13) "Partly cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/116.png" ["code"]=> int(1003) } ["windMph"]=> float(6.7) ["windKph"]=> float(10.8) ["windDegree"]=> int(59) ["windDir"]=> string(3) "ENE" ["pressureMb"]=> float(1010) ["pressureIn"]=> float(29.83) ["precipMm"]=> float(0) ["precipIn"]=> float(0) ["humidity"]=> int(60) ["cloud"]=> int(43) ["feelslikeC"]=> float(36.2) ["feelslikeF"]=> float(97.2) ["visKm"]=> float(10) ["visMiles"]=> float(6) ["uv"]=> NULL ["gustMph"]=> float(7.8) ["gustKph"]=> float(12.6) } } } [5]=> object(WeatherAPILib\Models\Forecastday1)#90 (5) { ["date"]=> string(10) "2021-11-14" ["dateEpoch"]=> int(1636848000) ["day"]=> object(WeatherAPILib\Models\Day)#159 (15) { ["maxtempC"]=> float(31.6) ["maxtempF"]=> float(88.9) ["mintempC"]=> float(25.2) ["mintempF"]=> float(77.4) ["avgtempC"]=> float(28.9) ["avgtempF"]=> float(83.9) ["maxwindMph"]=> float(6.9) ["maxwindKph"]=> float(11.2) ["totalprecipMm"]=> float(0) ["totalprecipIn"]=> float(0) ["avgvisKm"]=> float(10) ["avgvisMiles"]=> float(6) ["avghumidity"]=> float(74) ["condition"]=> object(WeatherAPILib\Models\Condition)#161 (3) { ["text"]=> string(6) "Cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/119.png" ["code"]=> int(1006) } ["uv"]=> float(0) } ["astro"]=> object(WeatherAPILib\Models\Astro)#160 (4) { ["sunrise"]=> string(8) "05:57 AM" ["sunset"]=> string(8) "05:25 PM" ["moonrise"]=> string(8) "02:18 PM" ["moonset"]=> string(8) "01:39 AM" } ["hour"]=> array(1) { [0]=> object(WeatherAPILib\Models\Hour)#162 (23) { ["timeEpoch"]=> int(1636862400) ["time"]=> string(16) "2021-11-14 12:00" ["tempC"]=> float(31.6) ["tempF"]=> float(88.9) ["isDay"]=> int(1) ["condition"]=> object(WeatherAPILib\Models\Condition)#164 (3) { ["text"]=> string(6) "Cloudy" ["icon"]=> string(46) "//cdn.weatherapi.com/weather/64x64/day/119.png" ["code"]=> int(1006) } ["windMph"]=> float(4.7) ["windKph"]=> float(7.6) ["windDegree"]=> int(91) ["windDir"]=> string(1) "E" ["pressureMb"]=> float(1010) ["pressureIn"]=> float(29.83) ["precipMm"]=> float(0) ["precipIn"]=> float(0) ["humidity"]=> int(61) ["cloud"]=> int(64) ["feelslikeC"]=> float(36.5) ["feelslikeF"]=> float(97.7) ["visKm"]=> float(10) ["visMiles"]=> float(6) ["uv"]=> NULL ["gustMph"]=> float(5.4) ["gustKph"]=> float(8.6) } } } } } }
+
+

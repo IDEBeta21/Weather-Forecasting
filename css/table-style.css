@@ -1,0 +1,49 @@
+
+/*Style for table*/
+
+
+       .center-table-container {
+        border: solid #ffffff;
+        border-width: 0.2rem 0 0;
+        border-radius: 23px;
+        color: black;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 8px 30px 1px 30px;      /*padding: 15px 300px 20px 300px;*/
+
+/*        margin: 15px 300px 20px 300px;
+*/    /*  width: 1500px;*/      
+    /*  margin-left: 180px;*/  
+    /*  position: relative;*/ 
+    /*  padding: 1rem;*/
+    /*  margin: 1rem -15px 0;*/
+  }
+
+        .center-card-card-container{
+            padding: 0px 300px 20px 300px;    /*padding: 15px 300px 20px 300px;*/
+        }
+
+        td{
+            text-align: center;
+            height: 40px;
+            width: 370px;
+            font-weight: 500;
+
+        }
+
+        td#loc, th#tbl-head{
+            text-align: left;
+            height: 40px;
+            width: 350px;
+
+        }
+
+        th{
+          width: 350px;
+          height: 40px;
+        }
+
+        .table{
+          color: #2F556C;
+        }
