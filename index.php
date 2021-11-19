@@ -26,12 +26,18 @@
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script> -->
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
+    <style>
+      .srchbtn:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
 </head>
 <body>
   <?php 
     require_once('components/key.php');
 
-    $q = 'Caloocan';
+    $q = 'Quezon';
     $lang = '';
 
     $result = $aPIs->getRealtimeWeather($q, $lang);
@@ -48,12 +54,6 @@
 
     <ul class="nav_list"> 
       <li>
-        <i class='bx bx-search'></i>    
-        <input type="text" placeholder="Search..." style="color: white;">
-		    <span class="tooltip">Search</span>
-      </li>
-
-      <li>
         <a href="#">
           <i class='bx bx-cloud-snow'></i>
           <span class="links_name">Forecast</span>
@@ -62,16 +62,20 @@
       </li>
 
       <li>
-        <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="links_name">Settings</span>
+          <a href="#">
+            <span style="padding-left: 15px; padding-right: 15px;">
+              <span class="iconify" data-icon="ion:information-circle" style="color: white;" data-width="20" data-height="20"></span>
+            </span>
+            <span class="links_name">About us</span>
           </a>
-        <span class="tooltip">Settings</span>
+            <span class="tooltip">About us</span>
       </li>
+
     </ul>
 
   </div>
-  
+
+
   <div class = "home_content overflow-auto container-fluid">
 
     <!-- Search Bar Ulet -->
@@ -83,7 +87,23 @@
       </div>
         <input type = "text" placeholder = "Search for places...">
     </div> -->
-    <!-- Search Bar Ulet -->
+    <!-- Search Bar -->
+    <div class="container-fluid">
+      <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <form class="d-flex">
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button>  -->
+            <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="alert('hello world');">
+              <div class = "icon" style="background: #F0F1F1; width: 40px; height: 40px; border-radius: 20em; margin-bottom: 1px;margin-left: 9px; margin-top: 0px; font-size: 30px;">
+                <i class='bx bx-search-alt-2'></i>
+              </div>
+            </button> 
+            <input class="form-control me-2 srchbtn" type="search" placeholder="Search" aria-label="Search" style="border:0px; border-bottom:2px solid #E1E1E1; border-radius: 0px; padding-left: 30px; margin-top: 5px;">
+
+          </form>
+        </div>
+      </nav>
+    </div>
 
     <!-- Location and Buttons -->
     <div class = "location-buttons">
@@ -94,6 +114,7 @@
       <!-- Empty Container -->
 
       <!-- Selected Location -->
+
       <div class = "place-container">
         <div class = "place-date-time"> 
           <h2> <?php echo($result->location->name); ?> City</h2>
@@ -112,14 +133,6 @@
           <div class = "refresh-icon">
             <span class="iconify" data-icon="ci:refresh"></span>
           </div>
-
-          <div class = "far">
-            <button> <span class = "far-text" style='font-size: 32px;'>&#8451;</span> </button>
-          </div>
-
-          <div class = "cel">
-            <button> <span class = "cel-text" style='font-size: 32px;'>&#8457;</span> </button>
-          </div>
         </div>
       </div>
       <!-- Buttons -->
@@ -130,6 +143,7 @@
     <div class = "main-container">
       <div class = "left-container">
         <div class = "weather">
+
           <div class = "image">
             <img src = "src/icon-lightRain.png" alt="status">
           </div>
@@ -139,36 +153,26 @@
           <div class = "degree">
             <span class = "far-text" style='font-size: 32px;'>&#8451;</span>
           </div>
+
+          <div class = "temp">
+            <h3><?php echo((int)$result->current->tempF); ?> </h3>
+          </div>
+          <div class = "degree">
+            <span class = "far-text" style='font-size: 32px;'>&#8457;</span>
+          </div>
         </div>
+
         <div class = "status">
           <div class = "sub-status">
             <p> Light Rain </p>
           </div>
         </div>
       </div>
-
-      <div class = "right-container">
-        <div class = "max">
-          <div class = "temp">
-            <h3> 33 </h3>
-          </div>
-          <div class = "degree">
-            <span class = "far-text" style='font-size: 20px;'>&#8451;</span>
-          </div>
-        </div>
-        <div class = "seperator">
-          <hr>
-        </div>
-        <div class = "min">
-          <div class = "temp">
-            <h3> 27 </h3>
-          </div>
-          <div class = "degree">
-            <span class = "far-text" style='font-size: 20px;'>&#8451;</span>
-          </div>
-        </div>
-      </div>
     </div>
+
+
+    
+    
     <!-- Weather Status -->
 
     <!-- Weather Details -->
@@ -336,48 +340,53 @@
                 <tr class="table table-borderless">
                   <th scope="col" id="tbl-head">LOCATION</th>
                   <th scope="col">TEMPERATURE</th>
-                  <th scope="col">MAX TEMP</th>
-                  <th scope="col">MIN TEMP</th>
+                  <th scope="col">WEATHER STATUS</th>
+                  <th scope="col">WIND DIRECTION</th>
                   <th scope="col">WIND STATUS</th>
-
+                  <th scope="col">Go back</th>
                 </tr>
               </thead>
               <tbody class="table table-borderless">
-                  <tr>
-                    <td scope="row" id="loc">Angat, Bulacan</td>
-                    <td>32&#x2103;</td>
-                    <td>35&#x2103;</td>
-                    <td>28&#x2103;</td>
-                    <td><img src = "src/arrow.png" style="width: 18px; height: 18px;">    10 km/h</td>
-                  </tr>
-                  <tr>
-                    <td scope="row"  id="loc">Bocaue, Bulacan</td>
-                    <td>31&#x2103;</td>
-                    <td>34&#x2103;</td>
-                    <td>27&#x2103;</td>
-                    <td><img src = "src/arrow.png" style="width: 18px; height: 18px;">    10 km/h</td>
-                  </tr>
-                  <tr>
-                    <td scope="row"  id="loc">Meycauayan, Bulacan</td>
-                     <td>31&#x2103;</td>
-                    <td>34&#x2103;</td>
-                    <td>27&#x2103;</td>
-                    <td><img src = "src/arrow.png" style="width: 18px; height: 18px;">    10 km/h</td>
-                  </tr>
-                  <tr>
-                    <td scope="row"  id="loc">Obando, Bulacan</td>
-                    <td>31&#x2103;</td>
-                    <td>34&#x2103;</td>
-                    <td>27&#x2103;</td>
-                    <td><img src = "src/arrow.png" style="width: 18px; height: 18px;">    10 km/h</td>
-                  </tr>
-                  <tr>
-                    <td scope="row" id="loc">Pandi, Bulacan</td>
-                    <td>32&#x2103;</td>
-                    <td>35&#x2103;</td>
-                    <td>28&#x2103;</td>
-                    <td><img src = "src/arrow.png" style="width: 18px; height: 18px;">    10 km/h</td>
-                  </tr>
+                <tr>
+                  <td scope="row" id="loc">Angat, Bulacan</td>
+                  <td>32&#x2103;</td>
+                  <td>Sunny</td>
+                  <td><span class="iconify" id="arrow-icon-dir" data-icon="akar-icons:arrow-up" data-width="20"></span>North</td>
+                  <td>10 km/h</td>
+                  <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
+                </tr>
+                <tr>
+                  <td scope="row" id="loc">Bocaue, Bulacan</td>
+                  <td>31&#x2103;</td>
+                  <td>Partialy Cloudy</td>
+                  <td><span class="iconify" id="arrow-icon-dir" data-icon="akar-icons:arrow-up-left" data-width="20"></span>North East</td>
+                  <td>10 km/h</td>
+                  <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
+                </tr>
+                <tr>
+                  <td scope="row" id="loc">Meycauayan, Bulacan</td>
+                  <td>32&#x2103;</td>
+                  <td>Sunny</td>
+                  <td><span class="iconify" id="arrow-icon-dir" data-icon="akar-icons:arrow-up" data-width="20"></span>North</td>
+                  <td>10 km/h</td>
+                  <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
+                </tr>
+                <tr>
+                  <td scope="row" id="loc">Obando, Bulacan</td>
+                  <td>32&#x2103;</td>
+                  <td>Sunny</td>
+                  <td><span class="iconify" id="arrow-icon-dir" data-icon="akar-icons:arrow-up" data-width="20"></span>North</td>
+                  <td>10 km/h</td>
+                  <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
+                </tr>
+                <tr>
+                  <td scope="row" id="loc">Pandi, Bulacan</td>
+                  <td>32&#x2103;</td>
+                  <td>Sunny</td>
+                  <td><span class="iconify" id="arrow-icon-dir" data-icon="akar-icons:arrow-up" data-width="20"></span>North</td>
+                  <td>10 km/h</td>
+                  <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
+                </tr>
               </tbody>
             </table>
 

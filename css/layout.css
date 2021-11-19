@@ -143,7 +143,7 @@ body{
 	transition: all 0.5s ease;
 }
 
-.sidebar ul li .bx-search: hover{
+.sidebar ul li .bx-search:hover{
 	background: #FFFFFF;
 	color: #46687C;
 }
@@ -195,5 +195,3 @@ body{
 	width: calc(100% - 240px);
 	left: 240px;
 }
-
-
