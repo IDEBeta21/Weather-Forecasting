@@ -37,8 +37,14 @@
   <?php 
     require_once('components/key.php');
 
-    $q = 'Caloocan';
+    $q = 'Manila';
     $lang = '';
+
+    if(isset($_GET['txtSearch'])){
+      if(!empty($_GET['txtSearch'])){
+        $q = $_GET['txtSearch'];
+      }
+    }
 
     $result = $aPIs->getRealtimeWeather($q, $lang);
 
@@ -91,15 +97,14 @@
     <div class="container-fluid">
       <nav class="navbar navbar-light">
         <div class="container-fluid">
-          <form class="d-flex">
+          <form class="d-flex" action="index.php" method="GET">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button>  -->
             <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="AddRow()">
               <div class = "icon" style="background: #F0F1F1; width: 40px; height: 40px; border-radius: 20em; margin-bottom: 1px;margin-left: 9px; margin-top: 0px; font-size: 30px;">
                 <i class='bx bx-search-alt-2'></i>
               </div>
             </button> 
-            <input class="form-control me-2 srchbtn" type="search" placeholder="Search" aria-label="Search" style="border:0px; border-bottom:2px solid #E1E1E1; border-radius: 0px; padding-left: 30px; margin-top: 5px;">
-
+            <input class="form-control me-2 srchbtn" name="txtSearch" type="search" placeholder="Search" aria-label="Search" style="border:0px; border-bottom:2px solid #E1E1E1; border-radius: 0px; padding-left: 30px; margin-top: 5px;">
           </form>
         </div>
       </nav>

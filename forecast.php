@@ -1,6 +1,6 @@
 <?php 
 
-  $q2 = 'caloocan';
+  $q2 = $q;
   // $dt2 = date_create('2021-11-14');
   $dt2 = date_add(date_create(date("Y-m-d")),date_interval_create_from_date_string("-6 days"));
   $unixdt2 = null;
