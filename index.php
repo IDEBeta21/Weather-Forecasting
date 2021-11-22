@@ -93,7 +93,7 @@
         <div class="container-fluid">
           <form class="d-flex">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button>  -->
-            <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="alert('hello world');">
+            <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="AddRow()">
               <div class = "icon" style="background: #F0F1F1; width: 40px; height: 40px; border-radius: 20em; margin-bottom: 1px;margin-left: 9px; margin-top: 0px; font-size: 30px;">
                 <i class='bx bx-search-alt-2'></i>
               </div>
@@ -333,7 +333,7 @@
 
         <div>
           <div class="center-table-container">
-              <table class="table">
+              <table class="table" id="show">
 <!--               <table class="table table-hover">
  -->              <thead class="thead-style" style="text-align: center;
 ">
@@ -346,7 +346,7 @@
                   <th scope="col">Go back</th>
                 </tr>
               </thead>
-              <tbody class="table table-borderless">
+              <!-- <tbody class="table table-borderless">
                 <tr>
                   <td scope="row" id="loc">Angat, Bulacan</td>
                   <td>32&#x2103;</td>
@@ -387,7 +387,7 @@
                   <td>10 km/h</td>
                   <td><button type="submit" class="btn btn-outline-secondary" >Go back</button></td>
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
 
           </div>
@@ -421,13 +421,90 @@
     let sidebar = document.querySelector(".sidebar");
     let searchBtn = document.querySelector(".bx-search");
 
+//     let row = 1;
+//     var searchBtn = document.getElementById("searchBtn", displayDetails)
+//   //searchBtn.addEventListener("click", false);
+
+// //let row = 1;
+// searchBtn.onclick = function() {
+// function displayDetails (){
+//     //alert(city1); 
+//     let display = document.getElementById ("display");
+
+//     var newRow = display.insertRow(row); 
+
+//     var celli = newRow. insertCell (0);
+//     var cell2 = newRow.insertCell(1);
+//     var cell3 = newRow. insertCell(2);
+//     var cell4 = newRow. insertCell(3);
+//     var cell5 = newRow. insertCell(4);
+
+//     celli. innerHTML = city1;
+//     cell2. innerHTML = tempC1;
+//     cell3. innerHTML = weatherStatus1;
+//     cell4. innerHTML = windDirection1;
+//     cell5. innerHTML = windKph1;
+
+//     row++;
+// }}
     btn.onclick = function() {
       sidebar.classList.toggle("active");
     }
 
-    searchBtn.onclick = function() {
-      sidebar.classList.toggle("active");
-    }
+    //  searchBtn.onclick = function() {
+    //  sidebar.classList.toggle("active");
+
+     city1 ='<?php echo($result->location->name) ;?> ';
+     tempC1 = '<?php echo((int)$result->current->tempC); ?>';
+     weatherStatus1 = '<?php echo($result->current->condition->text)?>';
+     windDirection1 = '<?php echo($result->current->windDir)?>';
+     windKph1 = ' <?php echo($result->current->windKph) ?>';
+    
+
+     
+    var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+    var list5 = [];
+    //var list6 = [];
+
+		var n = 1;
+		var x = 0;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+      list1[x] = city1 + "City";
+			list2[x] = tempC1 + "&#x2103;";
+			list3[x] = weatherStatus1;
+			list4[x] = windDirection1;
+      list5[x] = windKph1 + " km/h";
+      //list6[x] = <button type="submit" class="btn btn-outline-secondary" >Go back</button>; 
+
+      var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			var cel4 = NewRow.insertCell(3);
+      var cel5 = NewRow.insertCell(4);
+      //var cel6 = NewRow.insertCell(5);
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+			cel4.innerHTML = list4[x];
+      cel5.innerHTML = list5[x];
+      //cel6.innerHTML = list6[x];
+
+			n++;
+			x++;
+		}
+
+    //}
+
+
 
     // Gauge UV Index
     const gaugeElement = document.querySelector(".gauge");
