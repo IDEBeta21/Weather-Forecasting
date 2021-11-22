@@ -37,7 +37,7 @@
   <?php 
     require_once('components/key.php');
 
-    $q = 'Quezon';
+    $q = 'Caloocan';
     $lang = '';
 
     $result = $aPIs->getRealtimeWeather($q, $lang);
