@@ -31,11 +31,21 @@
         outline: none;
         box-shadow: none;
       }
+      body{
+        zoom: 90%;
+      }
     </style>
 </head>
 <body>
   <?php 
+
+    
+    // session_set_cookie_params(0);
+    session_start();
+    
     require_once('components/key.php');
+
+    date_default_timezone_set("Asia/Manila");
 
     $q = 'Manila';
     $lang = '';
@@ -46,7 +56,46 @@
       }
     }
 
+    if(!isset($_SESSION['datahistory'])){
+      $_SESSION['datahistory'] = array();
+    }
+
     $result = $aPIs->getRealtimeWeather($q, $lang);
+
+    $_GET['hLocation']    = $result->location->name;
+    $_GET['hTemp']        = $result->current->tempC;
+    $_GET['hStatus']      = $result->current->condition->text;
+    $_GET['hDirection']   = $result->current->windDir;
+    $_GET['hWindStatus']  = $result->current->windKph;
+
+    if(isset($_GET['txtSearch'])){
+      
+      // saving recent data for history
+      $myArray = array();
+
+      if(!isset($_SESSION['datahistory'])){
+        $_SESSION['datahistory'] = array();
+      }else{
+        if(isset($_GET['txtSearch'])){
+          if(!empty($_GET['txtSearch'])){
+        //   array_push($myArray,$_GET['input']);
+            $myArray = array(
+              $_GET['hLocation'],
+              $_GET['hTemp'],
+              $_GET['hStatus'],
+              $_GET['hDirection'],
+              $_GET['hWindStatus']
+              // $result->location->name,
+              // $result->current->tempC,
+              // $result->current->condition->text,
+              // $result->current->windDir,
+              // $result->current->windKph
+            );
+            array_push($_SESSION['datahistory'],$myArray);
+          }
+        }
+      }
+    }
 
   ?>
   <div class="sidebar">
@@ -99,12 +148,13 @@
         <div class="container-fluid">
           <form class="d-flex" action="index.php" method="GET">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button>  -->
-            <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="AddRow()">
+            <!-- <button class="btn btn-secondary-outline srchbtn" type="submit" onclick="AddRow()"> -->
+            <button class="btn btn-secondary-outline srchbtn" type="submit">
               <div class = "icon" style="background: #F0F1F1; width: 40px; height: 40px; border-radius: 20em; margin-bottom: 1px;margin-left: 9px; margin-top: 0px; font-size: 30px;">
                 <i class='bx bx-search-alt-2'></i>
               </div>
             </button> 
-            <input class="form-control me-2 srchbtn" name="txtSearch" type="search" placeholder="Search" aria-label="Search" style="border:0px; border-bottom:2px solid #E1E1E1; border-radius: 0px; padding-left: 30px; margin-top: 5px;">
+            <input class="form-control me-2 srchbtn" name="txtSearch" type="text" placeholder="Search" aria-label="Search" style="border:0px; border-bottom:2px solid #E1E1E1; border-radius: 0px; padding-left: 30px; margin-top: 5px;" autocomplete="off">
           </form>
         </div>
       </nav>
@@ -124,9 +174,39 @@
         <div class = "place-date-time"> 
           <h2> <?php echo($result->location->name); ?> City</h2>
           <div class = "date-time">
-            <p> Thursday, October 07, 2020</p>
+            <?php
+              $day = '';
+              $month = '';
+
+              if(date('w') == 0){
+                $day = 'Monday';
+              }else if(date('w') == 1){
+                $day = 'Tuesday';
+              }else if(date('w') == 2){
+                $day = 'Wednesday';
+              }else if(date('w') == 3){
+                $day = 'Thursday';
+              }else if(date('w') == 4){
+                $day = 'Friday';
+              }else if(date('w') == 5){
+                $day = 'Saturday';
+              }else if(date('w') == 6){
+                $day = 'Sunday';
+              }
+
+              echo('<p> ' . $day . ', ' . date('F, Y') . '</p>');
+
+            ?>
+            <!-- <p> Thursday, October 07, 2020</p> -->
             <p class = "seperator"> | </p>
-            <p> 2:00 PM</p>
+            <p id="demo">
+              <?php 
+                // $cdate = new DateTime(date("Y-m-d H:i:sP"), new DateTimeZone('Asia/Manila'));
+                // echo(date("h:i a")->); 
+                // echo($cdate->format('h:i a')); 
+              ?>
+            </p>
+            <!-- <p> 2:00 PM</p> -->
           </div>
         </div>
       </div>
@@ -150,26 +230,27 @@
         <div class = "weather">
 
           <div class = "image">
-            <img src = "src/icon-lightRain.png" alt="status">
-          </div>
+            <!-- <img src = "src/icon-lightRain.png" alt="status"> -->
+            <img src = "<?php echo($result->current->condition->icon); ?>" alt="status" style="width: 100px;margin-top: -30px; margin-left: -80px;">
+          </div> 
           <div class = "temp">
             <h3> <?php echo((int)$result->current->tempC); ?> </h3>
           </div>
           <div class = "degree">
-            <span class = "far-text" style='font-size: 32px;'>&#8451;</span>
+            <span class = "far-text" style='font-size: 32px; margin-left: 10px;'>&#8451;</span>
           </div>
 
-          <div class = "temp">
+          <div class = "temp" style="margin-left: 20px;">
             <h3><?php echo((int)$result->current->tempF); ?> </h3>
           </div>
           <div class = "degree">
-            <span class = "far-text" style='font-size: 32px;'>&#8457;</span>
+            <span class = "far-text" style='font-size: 32px; margin-left: 15px;'>&#8457;</span>
           </div>
         </div>
 
         <div class = "status">
           <div class = "sub-status">
-            <p> Light Rain </p>
+            <p><?php echo($result->current->condition->text); ?></p>
           </div>
         </div>
       </div>
@@ -351,6 +432,38 @@
                   <th scope="col">Go back</th>
                 </tr>
               </thead>
+              <tbody class="table table-borderless">
+                <?php
+                  if(isset($_SESSION['datahistory'])){
+                    // if(count($_SESSION['datahistory']) == 0){
+                      $count = 0;
+                      for($aa = count($_SESSION['datahistory'])-1 ; $aa >= 0; $aa-- ){
+                          // echo($_SESSION['datahistory'][$aa][0] . "    " . $_SESSION['datahistory'][$aa][1]);
+                          // echo('</br>');
+
+                          echo('<tr>');
+                            echo('<td scope="row" id="loc">' . $_SESSION['datahistory'][$aa][0] . '</td>');
+                            echo('<td>' . $_SESSION['datahistory'][$aa][1] . '&#x2103;</td>');
+                            echo('<td>' . $_SESSION['datahistory'][$aa][2] . '</td>');
+                            echo('<td>' . $_SESSION['datahistory'][$aa][3] . '</td>');
+                            echo('<td>' . $_SESSION['datahistory'][$aa][4] . ' km/h</td>');
+                            echo('<td>');
+                              echo('<a href="index.php?txtSearch='. $_SESSION['datahistory'][$aa][0] .'">');
+                                echo('<button type="submit" class="btn btn-outline-secondary" >Go back</button>');
+                              echo('</td>');
+                            echo('</td>');
+                          echo('</tr>');
+                          // count output to display, it should only be 5
+                          if($count == 4){
+                              $aa = -1;
+                          }
+                          $count++;
+                      }
+                    // }
+                  }
+                ?>
+
+              </tbody>
               <!-- <tbody class="table table-borderless">
                 <tr>
                   <td scope="row" id="loc">Angat, Bulacan</td>
@@ -452,60 +565,60 @@
 
 //     row++;
 // }}
-    btn.onclick = function() {
-      sidebar.classList.toggle("active");
-    }
+    // btn.onclick = function() {
+    //   sidebar.classList.toggle("active");
+    // }
 
-    //  searchBtn.onclick = function() {
-    //  sidebar.classList.toggle("active");
+    // //  searchBtn.onclick = function() {
+    // //  sidebar.classList.toggle("active");
 
-     city1 ='<?php echo($result->location->name) ;?> ';
-     tempC1 = '<?php echo((int)$result->current->tempC); ?>';
-     weatherStatus1 = '<?php echo($result->current->condition->text)?>';
-     windDirection1 = '<?php echo($result->current->windDir)?>';
-     windKph1 = ' <?php echo($result->current->windKph) ?>';
+    //  city1 ='<?php echo($result->location->name) ;?> ';
+    //  tempC1 = '<?php echo((int)$result->current->tempC); ?>';
+    //  weatherStatus1 = '<?php echo($result->current->condition->text)?>';
+    //  windDirection1 = '<?php echo($result->current->windDir)?>';
+    //  windKph1 = ' <?php echo($result->current->windKph) ?>';
     
 
      
-    var list1 = [];
-		var list2 = [];
-		var list3 = [];
-		var list4 = [];
-    var list5 = [];
-    //var list6 = [];
+    // var list1 = [];
+		// var list2 = [];
+		// var list3 = [];
+		// var list4 = [];
+    // var list5 = [];
+    // //var list6 = [];
 
-		var n = 1;
-		var x = 0;
+		// var n = 1;
+		// var x = 0;
 
-		function AddRow(){
+		// function AddRow(){
 
-			var AddRown = document.getElementById('show');
-			var NewRow = AddRown.insertRow(n);
+		// 	var AddRown = document.getElementById('show');
+		// 	var NewRow = AddRown.insertRow(n);
 
-      list1[x] = city1 + "City";
-			list2[x] = tempC1 + "&#x2103;";
-			list3[x] = weatherStatus1;
-			list4[x] = windDirection1;
-      list5[x] = windKph1 + " km/h";
-      //list6[x] = <button type="submit" class="btn btn-outline-secondary" >Go back</button>; 
+    //   list1[x] = city1 + "City";
+		// 	list2[x] = tempC1 + "&#x2103;";
+		// 	list3[x] = weatherStatus1;
+		// 	list4[x] = windDirection1;
+    //   list5[x] = windKph1 + " km/h";
+    //   //list6[x] = <button type="submit" class="btn btn-outline-secondary" >Go back</button>; 
 
-      var cel1 = NewRow.insertCell(0);
-			var cel2 = NewRow.insertCell(1);
-			var cel3 = NewRow.insertCell(2);
-			var cel4 = NewRow.insertCell(3);
-      var cel5 = NewRow.insertCell(4);
-      //var cel6 = NewRow.insertCell(5);
+    //   var cel1 = NewRow.insertCell(0);
+		// 	var cel2 = NewRow.insertCell(1);
+		// 	var cel3 = NewRow.insertCell(2);
+		// 	var cel4 = NewRow.insertCell(3);
+    //   var cel5 = NewRow.insertCell(4);
+    //   //var cel6 = NewRow.insertCell(5);
 
-			cel1.innerHTML = list1[x];
-			cel2.innerHTML = list2[x];
-			cel3.innerHTML = list3[x];
-			cel4.innerHTML = list4[x];
-      cel5.innerHTML = list5[x];
-      //cel6.innerHTML = list6[x];
+		// 	cel1.innerHTML = list1[x];
+		// 	cel2.innerHTML = list2[x];
+		// 	cel3.innerHTML = list3[x];
+		// 	cel4.innerHTML = list4[x];
+    //   cel5.innerHTML = list5[x];
+    //   //cel6.innerHTML = list6[x];
 
-			n++;
-			x++;
-		}
+		// 	n++;
+		// 	x++;
+		// }
 
     //}
 
@@ -553,6 +666,9 @@
 
     updateProgressBar2(myProgressBar2, <?php echo($result->current->precipIn)?>);
     // Progress Bar Precipitation
+    var today = new Date();
+    const ctime = today.getHours() + ":" + today.getMinutes();
+    document.getElementById("demo").innerHTML = ctime;
   </script>
 
  <!-- Optional JavaScript; choose one of the two! -->
