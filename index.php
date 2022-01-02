@@ -31,8 +31,8 @@
         outline: none;
         box-shadow: none;
       }
-      body{
-        zoom: 90%;
+      .forecast-view{
+        zoom: 85%;
       }
     </style>
 </head>
@@ -48,6 +48,7 @@
     date_default_timezone_set("Asia/Manila");
 
     $q = 'Manila';
+    $q_bak = $q;
     $lang = '';
 
     if(isset($_GET['txtSearch'])){
@@ -60,7 +61,22 @@
       $_SESSION['datahistory'] = array();
     }
 
-    $result = $aPIs->getRealtimeWeather($q, $lang);
+    $err_enc = false;
+    try {
+      //code...
+      $result = $aPIs->getRealtimeWeather($q, $lang);
+    } catch (\Throwable $th) {
+      //throw $th;
+      if(count($_SESSION['datahistory']) != 0){
+        $result = $aPIs->getRealtimeWeather($_SESSION['datahistory'][count($_SESSION['datahistory'])-1][0], $lang);
+        $err_enc = true;
+        echo '<script>alert("Invalid Input. Please input city name")</script>';
+      }else{
+        $result = $aPIs->getRealtimeWeather($q_bak, $lang);
+        $err_enc = true;
+        echo '<script>alert("Invalid Input. Please input city name")</script>';
+      }
+    }
 
     $_GET['hLocation']    = $result->location->name;
     $_GET['hTemp']        = $result->current->tempC;
@@ -91,7 +107,9 @@
               // $result->current->windDir,
               // $result->current->windKph
             );
-            array_push($_SESSION['datahistory'],$myArray);
+            if($err_enc == false){
+              array_push($_SESSION['datahistory'],$myArray);
+            }
           }
         }
       }
@@ -194,7 +212,7 @@
                 $day = 'Sunday';
               }
 
-              echo('<p> ' . $day . ', ' . date('F, Y') . '</p>');
+              echo('<p> ' . $day . ', ' . date('F d, Y') . '</p>');
 
             ?>
             <!-- <p> Thursday, October 07, 2020</p> -->
@@ -266,7 +284,7 @@
       <div class="left-container-details-top">
 
         <!-- UV Index -->
-        <div class = "uv-index">
+        <div class = "uv-index" style="margin-top:60px;">
           <div class = "gauge">
             <div class = "sub-gauge">
               <div class="gauge__body">
@@ -277,11 +295,12 @@
               </div>
             </div>
           </div>
-          <div class = "measurement-uv">
-            <div class = "circle">
+          <!-- <div class = "measurement-uv">
+            <-- <div class = "circle">
             </div>
-            <p> Low </p>
-          </div>
+            <-- <p> Low </p> -->
+            <!-- <p> <?php echo($result->current->uv)?> </p> 
+          </div> -->
           <div class = "label-uv">
             <p> UV Index </p>
           </div>
@@ -289,7 +308,7 @@
         <!-- UV Index -->
 
         <!-- Barometer -->
-        <div class = "barometer">
+        <div class = "barometer" style="margin-top: -40px;">
           <div class = "measurement-barometer">
             <p> <?php echo($result->current->pressureMb)?> mb</p>
           </div>
@@ -308,10 +327,10 @@
           </div>
           <div class = "measurement-wind">
             <div class = "wind-icon">
-              <img src = "src/arrow.png" style="height: 24px; width: 24px; padding-bottom: 2px">
+              <!-- <img src = "src/arrow.png" style="height: 24px; width: 24px; padding-bottom: 2px"> -->
             </div>
-            <div class = "wind-sub">
-              <p> <?php echo($result->current->windKph) ?> km/ h </p>
+            <div class = "wind-sub" style="margin-left: -10px;">
+              <p><?php echo($result->current->windKph) ?> km/ h </p>
             </div>
           </div>
           <div class = "label-wind">
@@ -421,15 +440,24 @@
           <div class="center-table-container">
               <table class="table" id="show">
 <!--               <table class="table table-hover">
- -->              <thead class="thead-style" style="text-align: center;
-">
+-->           <thead class="thead-style" style="text-align: center;">
                 <tr class="table table-borderless">
-                  <th scope="col" id="tbl-head">LOCATION</th>
+                  <?php
+                    if(count($_SESSION['datahistory']) != 0){
+                      echo('<th scope="col" id="tbl-head">LOCATION</th>');
+                      echo('<th scope="col">TEMPERATURE</th>');
+                      echo('<th scope="col">WEATHER STATUS</th>');
+                      echo('<th scope="col">WIND DIRECTION</th>');
+                      echo('<th scope="col">WIND STATUS</th>');
+                      echo('<th scope="col">Go back</th>');
+                    }
+                  ?>
+                  <!-- <th scope="col" id="tbl-head">LOCATION</th>
                   <th scope="col">TEMPERATURE</th>
                   <th scope="col">WEATHER STATUS</th>
                   <th scope="col">WIND DIRECTION</th>
                   <th scope="col">WIND STATUS</th>
-                  <th scope="col">Go back</th>
+                  <th scope="col">Go back</th> -->
                 </tr>
               </thead>
               <tbody class="table table-borderless">
@@ -657,9 +685,9 @@
 
     // Progress Bar Precipitation
     function updateProgressBar2(progressBar2, value) {
-    value = Math.round(value);
-    progressBar2.querySelector(".progress2__fill").style.width = `${value}%`;
-    progressBar2.querySelector(".progress2__text").textContent = `${value}%`;
+      value = Math.round(value);
+      progressBar2.querySelector(".progress2__fill").style.width = `${value}%`;
+      progressBar2.querySelector(".progress2__text").textContent = `${value}%`;
     }
 
     const myProgressBar2 = document.querySelector(".progress2");

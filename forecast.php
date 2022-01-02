@@ -11,7 +11,20 @@
   $hour2 = 12;
   $lang2 = null;
 
-  $result2 = $aPIs->getHistoryWeather($q2, $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+  if($err_enc == false) {
+    //code...
+    $result2 = $aPIs->getHistoryWeather($q2, $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+  } else {
+    //throw $th;
+    if(count($_SESSION['datahistory']) != 0){
+      $result2 = $aPIs->getHistoryWeather($_SESSION['datahistory'][count($_SESSION['datahistory'])-1][0], $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+      $err_enc = true;
+    }else{
+      $result2 = $aPIs->getHistoryWeather($q_bak, $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+      $err_enc = true;
+    }
+  }
+  
 
   // collect data from the API and printing
   $data = array();
@@ -34,15 +47,44 @@
     $unixdt3 = null;
     $hour3 = 11;
     $lang3 = null;
-
-    $result3 = $aPIs->getForecastWeather(
+    
+    if($err_enc == false){
+      //code...
+      $result3 = $aPIs->getForecastWeather(
         $q3, 
         $days3, 
         $dt3, 
         $unixdt3, 
         $hour3, 
         $lang3
-    );
+      );
+    } else {
+      //throw $th;
+      if(count($_SESSION['datahistory']) != 0){
+        // $result2 = $aPIs->getHistoryWeather($_SESSION['datahistory'][count($_SESSION['datahistory'])-1][0], $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+        $result3 = $aPIs->getForecastWeather(
+          $_SESSION['datahistory'][count($_SESSION['datahistory'])-1][0], 
+          $days3, 
+          $dt3, 
+          $unixdt3, 
+          $hour3, 
+          $lang3
+        );
+        $err_enc = true;
+      }else{
+        // $result2 = $aPIs->getHistoryWeather($q_bak, $dt2, $unixdt2, $endDt2, $unixendDt2, $hour2, $lang2);
+        $result3 = $aPIs->getForecastWeather(
+          $q_bak, 
+          $days3, 
+          $dt3, 
+          $unixdt3, 
+          $hour3, 
+          $lang3
+        );
+        $err_enc = true;
+      }
+    }
+    
     
     $fdate = $result3->forecast->forecastday[0]->date;
     $ftemp = $result3->forecast->forecastday[0]->day->avgtempC;
@@ -131,7 +173,7 @@
 ?>
 
 
-<div class="card-container">
+<div class="card-container forecast-view">
   <div class="center-card-container">
 
     <!-- <div class="card">
