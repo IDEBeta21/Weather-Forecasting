@@ -1005,19 +1005,19 @@
               $month = '';
 
               if(date('w') == 0){
-                $day = 'Monday';
-              }else if(date('w') == 1){
-                $day = 'Tuesday';
-              }else if(date('w') == 2){
-                $day = 'Wednesday';
-              }else if(date('w') == 3){
-                $day = 'Thursday';
-              }else if(date('w') == 4){
-                $day = 'Friday';
-              }else if(date('w') == 5){
-                $day = 'Saturday';
-              }else if(date('w') == 6){
                 $day = 'Sunday';
+              }else if(date('w') == 1){
+                $day = 'Monday';
+              }else if(date('w') == 2){
+                $day = 'Tuesday';
+              }else if(date('w') == 3){
+                $day = 'Wednesday';
+              }else if(date('w') == 4){
+                $day = 'Thursday';
+              }else if(date('w') == 5){
+                $day = 'Friday';
+              }else if(date('w') == 6){
+                $day = 'Saturday';
               }
 
               echo('<p> ' . $day . ', ' . date('F d, Y') . '</p>');
@@ -1121,6 +1121,7 @@
             <p class = "barometer-sub" data-tooltip = "Click for more"> 
               <a 
                 href='https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index' 
+                target="_blank"
                 style="text-decoration:none;color: #6C99AE; ">UV Index
               </a>
             </p>
@@ -1428,12 +1429,12 @@
 
 //     row++;
 // }}
-    // btn.onclick = function() {
-    //   sidebar.classList.toggle("active");
-    // }
+    btn.onclick = function() {
+      sidebar.classList.toggle("active");
+    }
 
-    // //  searchBtn.onclick = function() {
-    // //  sidebar.classList.toggle("active");
+    //  searchBtn.onclick = function() {
+    //  sidebar.classList.toggle("active");
 
     //  city1 ='<?php echo($result->location->name) ;?> ';
     //  tempC1 = '<?php echo((int)$result->current->tempC); ?>';
