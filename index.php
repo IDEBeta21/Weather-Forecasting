@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<?php session_start();?>
 <head>
   <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,6 +35,780 @@
       .forecast-view{
         zoom: 85%;
       }
+      .home_content .main-container-details .right-container-details-top {
+        margin-right: 50px;
+      }
+
+      /* Wind ToolTip */
+      .wind-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .wind-sub::before,
+      .wind-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .wind-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 300%;
+        background-color: var(--tooltip-color);
+      }
+      .wind-sub:hover::before,
+      .wind-sub:hover::after {
+        --scale: 1;
+      }
+      .wind-sub::after {
+        --translate-y: calc(-1.2 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .wind-sub:hover {
+        transform: scale(1.08);
+      }
+      
+      .home_content .main-container-details .wind-status .label-wind p {
+        width: max-content;
+      }
+      .wind-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .wind-sub2::before,
+      .wind-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .wind-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .wind-sub2:hover::before,
+      .wind-sub2:hover::after {
+        --scale: 1;
+      }
+      .wind-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .wind-sub2:hover {
+        transform: scale(1.08);
+      }
+
+      /* Barometer ToolTip */
+      .home_content .main-container-details .barometer .measurement-barometer p{
+        width: max-content;
+      }
+
+      .barometer-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .barometer-sub::before,
+      .barometer-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .barometer-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 300%;
+        background-color: var(--tooltip-color);
+      }
+      .barometer-sub:hover::before,
+      .barometer-sub:hover::after {
+        --scale: 1;
+      }
+      .barometer-sub::after {
+        --translate-y: calc(-1.2 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .barometer-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .barometer .label-barometer p{
+        width: max-content;
+      }
+
+      .barometer-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .barometer-sub2::before,
+      .barometer-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .barometer-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 300%;
+        background-color: var(--tooltip-color);
+      }
+      .barometer-sub2:hover::before,
+      .barometer-sub2:hover::after {
+        --scale: 1;
+      }
+      .barometer-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .barometer-sub2:hover {
+        transform: scale(1.08);
+      }
+
+      /* Visibility ToolTip */
+      .home_content .main-container-details .visibility .measurement-visib p{
+        width: max-content;
+      }
+
+      .visib-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .visib-sub::before,
+      .visib-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .visib-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 300%;
+        background-color: var(--tooltip-color);
+      }
+      .visib-sub:hover::before,
+      .visib-sub:hover::after {
+        --scale: 1;
+      }
+      .visib-sub::after {
+        --translate-y: calc(-1.2 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .visib-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .visibility .label-visib p {
+        width: max-content;
+      }
+      .visib-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .visib-sub2::before,
+      .visib-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .visib-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .visib-sub2:hover::before,
+      .visib-sub2:hover::after {
+        --scale: 1;
+      }
+      .visib-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .visib-sub2:hover {
+        transform: scale(1.08);
+      }
+      
+      /* Humidity ToolTip */
+      .home_content .main-container-details .humidity .measurement-humid p {
+        width: max-content;
+      }
+
+      .humid-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .humid-sub::before,
+      .humid-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .humid-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 600%;
+        background-color: var(--tooltip-color);
+      }
+      .humid-sub:hover::before,
+      .humid-sub:hover::after {
+        --scale: 1;
+      }
+      .humid-sub::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .humid-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .humidity .label-humid p{
+        width: max-content;
+      }
+
+      .humid-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .humid-sub2::before,
+      .humid-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .humid-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .humid-sub2:hover::before,
+      .humid-sub2:hover::after {
+        --scale: 1;
+      }
+      .humid-sub2::after {
+        --translate-y: calc(-1.2 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .humid-sub2:hover {
+        transform: scale(1.08);
+      }
+
+      /* Precipitation ToolTip */
+      .home_content .main-container-details .precipitation .measurement-precip p {
+        width: max-content;
+      }
+
+      .precip-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .precip-sub::before,
+      .precip-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .precip-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 820%;
+        background-color: var(--tooltip-color);
+      }
+      .precip-sub:hover::before,
+      .precip-sub:hover::after {
+        --scale: 1;
+      }
+      .precip-sub::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .precip-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .precipitation .label-precip p {
+        width: max-content;
+      }
+
+      .precip-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .precip-sub2::before,
+      .precip-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .precip-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 300%;
+        background-color: var(--tooltip-color);
+      }
+      .precip-sub2:hover::before,
+      .precip-sub2:hover::after {
+        --scale: 1;
+      }
+      .precip-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .precip-sub2:hover {
+        transform: scale(1.08);
+      }
+
+      /* SunRise ToolTip */
+      .home_content .main-container-details .sun-rise .measurement-rise .rise-sub p {
+        width: max-content;
+      }
+
+      .sunrise-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .sunrise-sub::before,
+      .sunrise-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .sunrise-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .sunrise-sub:hover::before,
+      .sunrise-sub:hover::after {
+        --scale: 1;
+      }
+      .sunrise-sub::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .sunrise-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .sun-rise .label-rise p {
+        width: max-content;
+      }
+
+      .sunrise-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .sunrise-sub2::before,
+      .sunrise-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .sunrise-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .sunrise-sub2:hover::before,
+      .sunrise-sub2:hover::after {
+        --scale: 1;
+      }
+      .sunrise-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .sunrise-sub2:hover {
+        transform: scale(1.08);
+      }
+
+      /* SunSet ToolTip */
+      .home_content .main-container-details .sun-set .measurement-set .set-sub p {
+        width: max-content;
+      }
+
+      .sunset-sub {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .sunset-sub::before,
+      .sunset-sub::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .sunset-sub::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        text-transform: Uppercase;
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 400%;
+        background-color: var(--tooltip-color);
+      }
+      .sunset-sub:hover::before,
+      .sunset-sub:hover::after {
+        --scale: 1;
+      }
+      .sunset-sub::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .sunset-sub:hover {
+        transform: scale(1.08);
+      }
+
+      .home_content .main-container-details .sun-set .label-set p {
+        width: max-content;
+      }
+
+      .sunset-sub2 {
+        position: relative;
+        cursor: pointer;
+        transition: transform .2s;
+      }
+      .sunset-sub2::before,
+      .sunset-sub2::after {
+        --scale: 0;
+        --tooltip-color: white;
+        --arrow-size: 10px;
+
+        
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom center;
+      }
+      .sunset-sub2::before {
+        --translate-y: calc(-100% - var(--arrow-size));
+
+        font-size: 11px;
+        /* text-transform: Uppercase; */
+        font-weight: 700;
+        content: attr(data-tooltip); 
+        color: #5E7F94;
+        text-align: justify;
+        border-radius: 0.4em;
+        border: 2px solid #FF8D28;
+        padding: .7rem;
+        width: max-content;
+        max-width: 410%;
+        background-color: var(--tooltip-color);
+      }
+      .sunset-sub2:hover::before,
+      .sunset-sub2:hover::after {
+        --scale: 1;
+      }
+      .sunset-sub2::after {
+        --translate-y: calc(-1.1 * var(--arrow-size));
+        
+        content: '';
+        border: var(--arrow-size) solid transparent;
+        border-top-color: #FF8D28;
+        transform-origin: top center;
+      }
+      .sunset-sub2:hover {
+        transform: scale(1.08);
+      }
     </style>
 </head>
 <body>
@@ -41,7 +816,7 @@
 
     
     // session_set_cookie_params(0);
-    session_start();
+    // session_start();
     
     require_once('components/key.php');
 
@@ -70,11 +845,11 @@
       if(count($_SESSION['datahistory']) != 0){
         $result = $aPIs->getRealtimeWeather($_SESSION['datahistory'][count($_SESSION['datahistory'])-1][0], $lang);
         $err_enc = true;
-        echo '<script>alert("Invalid Input. Please input city name")</script>';
+        // echo '<script>alert("Invalid Input. Please input city name")</script>';
       }else{
         $result = $aPIs->getRealtimeWeather($q_bak, $lang);
         $err_enc = true;
-        echo '<script>alert("Invalid Input. Please input city name")</script>';
+        // echo '<script>alert("Invalid Input. Please input city name")</script>';
       }
     }
 
@@ -88,6 +863,7 @@
       
       // saving recent data for history
       $myArray = array();
+      $bool_duplicate = false;
 
       if(!isset($_SESSION['datahistory'])){
         $_SESSION['datahistory'] = array();
@@ -107,7 +883,24 @@
               // $result->current->windDir,
               // $result->current->windKph
             );
-            if($err_enc == false){
+
+            // check if the searched item haven't been searched before
+            // check if the searched location exist in datahistory
+            $check_count = 0;
+            for ($i= count($_SESSION['datahistory']) - 1; $i >= 0; $i--) { 
+              # code...
+              $check_count++;
+              if ($check_count <= 5) {
+                # code...
+                if($_SESSION['datahistory'][$i][0] == $_GET['hLocation']){
+                  $bool_duplicate = true;
+                }
+              }              
+            }
+            
+            
+            // save the searched city in datahistory
+            if($err_enc == false && $bool_duplicate == false){
               array_push($_SESSION['datahistory'],$myArray);
             }
           }
@@ -150,6 +943,21 @@
 
 
   <div class = "home_content overflow-auto container-fluid">
+
+  <?php 
+  
+    if($err_enc == true){
+      // echo '<div class="alert alert-danger">Sorry the city name you input can not be found. Please try again</div>';
+      echo 
+      '<div class="alert alert-danger alert-dismissible fade show">
+        Sorry the city name you input can not be found. Please try again
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+    }
+
+  ?>
 
     <!-- Search Bar Ulet -->
     <!-- <div class = "search-bar">
@@ -234,7 +1042,7 @@
       <div class = "buttons">
         <div class = "refresh-far-cel">
           <div class = "refresh-icon">
-            <span class="iconify" data-icon="ci:refresh"></span>
+            <span class="iconify" data-icon="ci:refresh" onclick="window.location.reload();"></span>
           </div>
         </div>
       </div>
@@ -291,6 +1099,14 @@
                 <div class="gauge__fill">
                 </div>
                 <div class="gauge__cover">
+                  <?php 
+                  if ($result->current->uv == null) {
+                    # code...
+                    echo('0');
+                  }else{
+                    echo($result->current->uv);
+                  }
+                  ?>
                 </div>
               </div>
             </div>
@@ -302,7 +1118,12 @@
             <!-- <p> <?php echo($result->current->uv)?> </p> 
           </div> -->
           <div class = "label-uv">
-            <p> UV Index </p>
+            <p class = "barometer-sub" data-tooltip = "Click for more"> 
+              <a 
+                href='https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index' 
+                style="text-decoration:none;color: #6C99AE; ">UV Index
+              </a>
+            </p>
           </div>
         </div>
         <!-- UV Index -->
@@ -310,10 +1131,12 @@
         <!-- Barometer -->
         <div class = "barometer" style="margin-top: -40px;">
           <div class = "measurement-barometer">
-            <p> <?php echo($result->current->pressureMb)?> mb</p>
+            <p class = "barometer-sub" data-tooltip = "Millibars (Air Pressure)"> <?php echo($result->current->pressureMb)?> mb</p>
           </div>
           <div class = "label-barometer">
-            <p> Barometer </p>
+            <p class = barometer-sub2 data-tooltip = "&emsp; Used in weather forecasting to measure
+            the pressure of the atmosphere. It can tell us whether or not the air pressure is rising or falling.
+            This information can use by meteorologists to determine whether a storm is coming or leaving. "> Barometer </p>
           </div>
         </div>
         <!-- Barometer -->
@@ -329,12 +1152,18 @@
             <div class = "wind-icon">
               <!-- <img src = "src/arrow.png" style="height: 24px; width: 24px; padding-bottom: 2px"> -->
             </div>
-            <div class = "wind-sub" style="margin-left: -10px;">
-              <p><?php echo($result->current->windKph) ?> km/ h </p>
+            <div class = "wind-sub" style="margin-left: -50px;" data-tooltip = "Wind Direction & Speed (Kilometer per hour)">
+              <p><text style="font-size: 30px;"><?php echo($result->current->windDir)?>&#176; </text> &nbsp; <?php echo($result->current->windKph) ?> km/ h </p>
             </div>
           </div>
           <div class = "label-wind">
-            <p> Wind Status </p>
+            <p class = "wind-sub2" data-tooltip = "&emsp; It is composed of two subjects, first is  wind 
+            direction and second is wind speed. Wind direction is the direction from which the wind is blowing; 
+            the direction from which the air is moving, It is measured with reference to 360 degrees on the 
+            compass (True North), and expressed to the nearest degree, going in a clockwise direction, or to 
+            any one of the 16 points on the compass (N, S, E, W, NE, NW, SE, and SW). Wind Speed however, 
+            simply describes how fast the air is moving past a certain point. This may be an averaged over a 
+            given unit of time, such as miles per hour, kilometer per hour or an instantaneous speed."> Wind Status </p>
           </div>
         </div>
         <!-- Wind Status -->
@@ -342,10 +1171,11 @@
         <!-- Visibility -->
         <div class = "visibility">
           <div class = "measurement-visib">
-            <p> <?php echo($result->current->visKm);?> km </p>
+            <p class = "visib-sub"  data-tooltip = "Kilometer (Distance)"> <?php echo($result->current->visKm);?> km </p>
           </div>
           <div class = "label-visib">
-            <p> Visibilty </p>
+            <p class = "visib-sub2" data-tooltip = "&emsp; The measurement of how far one can see in the 
+            distance, and visibility can be affected by fog and sinking air."> Visibilty </p>
           </div>
         </div>
         <!-- Visibility -->
@@ -359,7 +1189,7 @@
           <div class = "empty-humid">
           </div>
           <div class = "measurement-humid">
-            <p> <?php echo($result->current->humidity);?>% </p>
+            <p class = "humid-sub" data-tooltip = "Percentage of water vapor in the atmoshpere"> <?php echo($result->current->humidity);?>% </p>
           </div>
           <div class = "bar-humid">
             <div class="progress">
@@ -368,7 +1198,8 @@
             </div>
           </div>
           <div class = "label-humid">
-            <p> Humidity </p>
+            <p class = "humid-sub2"  data-tooltip = "&emsp; The measurement of how much water vapor is in the air/
+            atmosphere. The higher the percentage, the more water vapor the air holds."> Humidity </p>
           </div>
         </div>
         <!-- Visibility -->
@@ -376,7 +1207,8 @@
         <!-- Precipitation -->
         <div class = "precipitation">
           <div class = "measurement-precip">
-            <p> <?php echo($result->current->precipIn)?>% </p>
+            <p class = "precip-sub" data-tooltip = "Percentage of a chance of rain determined by the probability 
+            of precipitation"> <?php echo($result->current->precipIn)?>% </p>
           </div>
           <div class = "bar-precip">
             <div class="progress2">
@@ -385,7 +1217,8 @@
             </div>
           </div>
           <div class = "label-precip">
-            <p> Precipitation </p>
+            <p class = "precip-sub2"  data-tooltip = "&emsp; Any form of water from the atmosphere that falls to 
+            the ground, It could be rain, drizzle, snow, sleet, hail or something rarer."> Precipitation </p>
           </div>
         </div>
         <!-- Precipitation -->
@@ -402,11 +1235,12 @@
               <img src = "src/bi_sunrise-fill.png" alt="rise" style="height: 40px; width: 40px">
             </div>
             <div class = "rise-sub">
-            <p> 5:45 AM </p>
+            <p class = "sunrise-sub"  data-tooltip = "Predicted sunrise"> 5:45 AM </p>
             </div>
           </div>
           <div class = "label-rise">
-            <p> Sun Rise </p>
+            <p class = "sunrise-sub2" data-tooltip = "&emsp; The time in the morning when the sun appears or full daylight 
+            arrives."> Sun Rise </p>
           </div>
         </div>
         <!-- Sun Rise -->
@@ -418,11 +1252,12 @@
               <img src = "src/bi_sunset-fill.png" style="height: 40px; width: 40px">
             </div>
             <div class = "set-sub">
-            <p> 5:46 PM </p>
+            <p class = "sunset-sub" data-tooltip = "Predicted sunset"> 5:46 PM </p>
             </div>
           </div>
           <div class = "label-set">
-            <p> Sun Set </p>
+            <p class = "sunset-sub2"  data-tooltip = "&emsp; The time in the evening when the sun disappears
+            or daylight fades."> Sun Set </p>
           </div>
         </div>
         <!-- Sun Set -->
@@ -661,11 +1496,11 @@
       }
 
       gauge.querySelector(".gauge__fill").style.transform = `rotate(${
-        value / 5
+        2.50 / 5
       }turn)`;
-      gauge.querySelector(".gauge__cover").textContent = `${Math.round(
-        value * 10
-      )}%`;
+      // gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+      //   value //* 10
+      // )}`;//%`;
     }
 
     setGaugeValue(gaugeElement, <?php echo($result->current->uv)?>);//0.2);
@@ -694,8 +1529,13 @@
 
     updateProgressBar2(myProgressBar2, <?php echo($result->current->precipIn)?>);
     // Progress Bar Precipitation
+
+
+    // time generation
     var today = new Date();
-    const ctime = today.getHours() + ":" + today.getMinutes();
+    function hours12(date) { return (date.getHours() + 24) % 12 || 12; }
+
+    const ctime = hours12(new Date()) + ":" + today.getMinutes();
     document.getElementById("demo").innerHTML = ctime;
   </script>
 
