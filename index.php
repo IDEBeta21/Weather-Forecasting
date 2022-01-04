@@ -928,7 +928,7 @@
       </li>
 
       <li>
-          <a href="#">
+          <a href="about.html">
             <span style="padding-left: 15px; padding-right: 15px;">
               <span class="iconify" data-icon="ion:information-circle" style="color: white;" data-width="20" data-height="20"></span>
             </span>
@@ -1492,9 +1492,9 @@
     const gaugeElement = document.querySelector(".gauge");
 
     function setGaugeValue(gauge, value) {
-      if (value < 0 || value > 1) {
-        return;
-      }
+      // if (value < 0 || value > 1) {
+      //   return;
+      // }
 
       gauge.querySelector(".gauge__fill").style.transform = `rotate(${
         2.50 / 5
@@ -1509,9 +1509,9 @@
 
     // Progress Bar Humidity
     function updateProgressBar(progressBar, value) {
-    value = Math.round(value);
-    progressBar.querySelector(".progress__fill").style.width = `${value}%`;
-    progressBar.querySelector(".progress__text").textContent = `${value}%`;
+      value = Math.round(value);
+      progressBar.querySelector(".progress__fill").style.width = `${value}%`;
+      progressBar.querySelector(".progress__text").textContent = `${value}%`;
     }
 
     const myProgressBar = document.querySelector(".progress");

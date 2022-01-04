@@ -1,0 +1,79 @@
+
+/*Styles for table*/
+
+
+.center-table-container {
+  border: solid #ffffff;
+  border-width: 0.2rem 0 0;
+  border-radius: 23px;
+  color: black;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 1440px; /*1600px; */  /*1215px;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table{
+  color: #2F556C;
+}
+
+
+td{
+  text-align: center;
+  height: 40px;
+  width: 370px;
+  font-weight: 500;
+}
+
+
+td#loc, th#tbl-head{
+  text-align: left;
+  height: 40px;
+  width: 350px;
+}
+
+
+th{
+  width: 350px;
+  height: 40px;
+}
+
+
+td#wind-dir{
+  text-align: left;
+}
+
+
+svg#arrow-icon-dir.iconify.iconify--akar-icons{
+  width: 20px; 
+  height: 20px;
+  color: #2f556c; 
+  margin: 0px 15px 0px 0px; 
+}
+
+
+th#th-wind-dir{
+  text-align: left;
+  width: 300px;
+ }
+
+
+h4#recentForecast{
+  padding-left: 0px;          
+  color: #2F556C;
+  font-weight: 600;
+  padding-bottom: 13px;
+}
+
+
+th#weatherStatus, td#tdWeatherStatus{
+  text-align: left;
+  }
+
+
+td#wind-direction{
+  text-align: left;
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Weather Forecast</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- External CSS Links  -->
+    <link rel="stylesheet" type="text/css" href="CSS/about_page/layout.css">
+    <link rel="stylesheet" type="text/css" href="CSS/about_page/about-us-details.css">
+    <link rel="stylesheet" type="text/css" href="CSS/about_page/table-style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/about_page/card-style.css">
+
+    <!-- Boxicons CDN Link  -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Iconify link -->
+    <!--  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script> -->
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="logo_content">
+      <div class="logo">
+        <i class='bx bxs-sun'></i>
+        <div class="logo_name">Weather</div>
+      </div>
+        <i class='bx bx-menu' id="btn"></i>
+    </div>
+
+    <ul class="nav_list"> 
+
+      <li>
+          <a href="index.php">
+              <span style="padding-left: 15px; padding-right: 15px;">
+                <span class="iconify-inline" data-icon="fluent:weather-hail-day-48-filled" style="color: white;" data-width="20" data-height="20"></span>
+              </span>
+              <span class="links_name">Forecast</span>
+          </a>
+            <span class="tooltip">Forecast</span>
+      </li>
+
+      <li>
+          <a href="#">
+            <span style="padding-left: 15px; padding-right: 15px;">
+              <span class="iconify" data-icon="ion:information-circle" style="color: white;" data-width="20" data-height="20"></span>
+            </span>
+            <span class="links_name">About us</span>
+          </a>
+            <span class="tooltip">About us</span>
+      </li>
+
+    </ul>
+
+  </div>
+  
+  <div class = "home_content">
+    <div class = "about-container">
+      <!-- About Us -->
+      <div class = "about-us">
+        <h1> About us </h1>
+      </div>
+      
+      <!-- Description -->
+      <div class = "description">
+        <p> &emsp; &emsp; Weather forecasting is the science of predicting the weather based on physical principles 
+          as well as a variety of statistical and empirical methods. Weather forecasting entails making 
+          predictions about changes on the Earth's surface caused by atmospheric conditions. The purpose 
+          of the project is to provide information that people and organizations can use to reduce weather-
+          related losses and improve societal benefits such as life and property protection, public health 
+          and safety, and economic prosperity and quality of life. </p>
+      </div>
+
+      <!-- Content -->
+      <div class = "content-container">
+
+          <!-- Illustration -->
+          <div class = "illustration">
+            <img src = "src/ab-illustration.png" alt = "app illustration" height = "300">
+          </div>
+          
+          <!-- Features -->
+          <div class = "content">
+            
+            <!-- Features1 -->
+            <div class = "feature1">
+              <div class = "icon1">
+                <img src = "src/fe-realtime.png" height = "40">
+              </div>
+
+              <div class = "sub-feature1">
+                  <h3> Real-Time Weather Forecast </h3>
+                  <p> Provides accurate weather forecast in real-time, this includes temperature, weather status
+                  ultraviolet index, air pressure, wind status, visbility, humidity, precipitation, predicted sunrise
+                  and sunset. </p>
+              </div>
+            </div>
+            
+            <!-- Features2 -->
+            <div class = "feature2">
+              <div class = "icon2">
+                <img src = "src/fe-prediction.png" height = "40">
+              </div>
+              
+              <div class = "sub-feature2">
+                  <h3> Weather Prediction </h3>
+                  <p> Provides accurate daily weather forecast for you to arrange your outdoor activities, travel plans or just
+                  being updated and prepared for the weather in the days.
+                  </p>
+              </div>
+            </div>
+            
+            <!-- Features3 -->
+            <div class = "feature3">
+              <div class = "icon3">
+                <img src = "src/fe-history.png" height = "40">
+              </div>
+              
+              <div class = "sub-feature3">
+                  <h3> Weather Searches History </h3>
+                  <p> Automatically saves location searches along with it's weather information such as temperature
+                  weather status, wind direction and wind status for you to go back to that forecast later. </p>
+              </div>
+            </div>
+
+          </div>
+      </div>
+
+    </div>
+
+      <!-- Team Part -->
+      <div class = "team-container">
+        <!-- MEET OUR TEAM -->
+        <div class = "meet-our-team">
+          <h1> Meet our team </h1>
+        </div>
+
+        <!-- CARDS -->
+        <div class = "cards-container">
+          <div class = "right-container">
+            <div class = "top-right">
+              <div class = "member-1">
+                <div class = "avatar1">
+                  <img src = "src/Ian.jpg" alt = "Backend-Developer1" height = "90">
+                </div>
+                <div class = "member1">
+                  <h2> Ian Deladia </h2>
+                </div>
+                <div class = "role1">
+                  <h3> Backend Developer </h3>
+                </div>
+              </div>
+
+              <div class = "member-2">
+                <div class = "avatar2">
+                  <img src = "src/Marc.jpg" alt = "Backend-Developer2" height = "90">
+                </div>
+                <div class = "member2">
+                  <h2> Marc Edrian Labrento </h2>
+                </div>
+                <div class = "role2">
+                  <h3> Backend Developer </h3>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class = "bottom-right">
+              <div class = "member-3">
+                <div class = "avatar3">
+                  <img src = "src/Charles.jpg" alt = "Backend-Developer3" height = "90">
+                </div>
+                <div class = "member3">
+                  <h2> Charles John Rellama </h2>
+                </div>
+                <div class = "role3">
+                  <h3> Backend Developer </h3>
+                </div>
+              </div>
+              
+              <div class = "member-4">
+                <div class = "avatar4">
+                  <img src = "src/Jasmin.jpg" alt = "Front-End-Developer1" height = "90">
+                </div>
+                <div class = "member4">
+                  <h2> Jasmin Marzan </h2>
+                </div>
+                <div class = "role4">
+                  <h3> Front-End Developer </h3>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class = "left-container">
+            <div class = "top-left">
+              <div class = "member-5">
+                <div class = "avatar5">
+                  <img src = "src/Adrian.jpg" alt = "Backend-Developer4" height = "90">
+                </div>
+                <div class = "member5">
+                  <h2> Adrian Yves Marcelo </h2>
+                </div>
+                <div class = "role5">
+                  <h3> Backend Developer </h3>
+                </div>
+              </div>
+              
+              <div class = "member-6">
+                <div class = "avatar6">
+                  <img src = "src/Lester.jpg" alt = "Backend-Developer5" height = "90">      
+                </div>
+                <div class = "member6">
+                  <h2> Lester Rabago </h2>
+
+                </div>
+                <div class = "role6">
+                  <h3> Backend Developer </h3>
+
+                </div>
+              </div>
+              
+            </div>
+
+            <div class = "bottom-left">
+              <div class = "member-7">
+                <div class = "avatar7">
+                  <img src = "src/Joshua.png" alt = "Front-End-Developer2" height = "90">
+                </div>
+                <div class = "member7">
+                  <h2> Joshua Christopher Bautista </h2>
+                </div>
+                <div class = "role7">
+                  <h3> Front-End Developer </h3>
+                </div>
+              </div>
+              
+              <div class = "member-8">
+                <div class = "avatar8">
+                  <img src = "src/Javen.jpg" alt = "Front-End-Developer3" height = "90">
+                </div>
+                <div class = "member8">
+                  <h2> Javen Habalita </h2>
+                </div>
+                <div class = "role8">
+                  <h3> Front-End Developer </h3>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+      
+
+
+      <script type="text/javascript">
+            let btn = document.querySelector("#btn");
+            let sidebar = document.querySelector(".sidebar");
+
+            btn.onclick = function() {
+              sidebar.classList.toggle("active");
+            }
+      </script>
+
+     <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+        -->
+
+</body>
+</html>
+
+  <!-- <span class="iconify" data-icon="carbon:settings" style="color: white;"></span>
+  <span class="iconify" data-icon="fluent:weather-cloudy-24-regular" style="color: white;"></span>
+  <span class="iconify" data-icon="fluent:weather-hail-day-24-regular" style="color: white;"></span>
+   -->
