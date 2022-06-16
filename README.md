@@ -1,4 +1,4 @@
-# Getting started
+# API Documentation
 
 
 # Introduction
