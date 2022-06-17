@@ -1,4 +1,7 @@
-# Getting started
+# Check Website
+[Weather Forecasting](http://weatherforecasting.epizy.com/).
+
+# API Documentation
 
 
 # Introduction
